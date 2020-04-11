@@ -4,11 +4,14 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var monk = require('monk');
 var db = monk('localhost:27017/mydb');
+var cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+app.use(cors());
 
 app.use(logger('dev'));
 app.use(express.json());

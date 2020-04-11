@@ -24,7 +24,7 @@ router.get('/unit/:id', function(req, res) {
   var query = { _id : id};
 
   // res.json({test: 'hello'});
-  collection.find(query,{},function(e,docs){
+  collection.findOne(query,{},function(e,docs){
     res.json(docs)
   });
 });
