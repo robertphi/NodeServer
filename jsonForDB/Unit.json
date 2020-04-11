@@ -1,0 +1,6 @@
+{"_id":{"$oid":"5e91f78f96908419c8e0fe6a"},"name":"Archer","description":"Shoots arrows","unitType":"Ranged","battlePower":"10","image":""}
+{"_id":{"$oid":"5e91f84c96908419c8e0fe6b"},"name":"Peasant","description":"Not very good","unitType":"Infantry","battlePower":"5","image":""}
+{"_id":{"$oid":"5e91f84c96908419c8e0fe6c"},"name":"Crossbow Guy","description":"Shoots bolts from crossbow","unitType":"Ranged","battlePower":"10","image":""}
+{"_id":{"$oid":"5e91f84c96908419c8e0fe6d"},"name":"Sword Guy","description":"Has a sharp sword","unitType":"Infantry","battlePower":"10","image":""}
+{"_id":{"$oid":"5e91f84c96908419c8e0fe6e"},"name":"Pike guy","description":"Has a sharp pike","unitType":"Infantry","battlePower":"10","image":""}
+{"_id":{"$oid":"5e91f84c96908419c8e0fe6f"},"name":"Horse guy","description":"Attacks from a horse..or camel...or something","unitType":"Calvary","battlePower":"25","image":""}
