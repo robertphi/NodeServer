@@ -11,7 +11,6 @@ router.get('/units', function(req, res) {
   var db = req.db;
   var collection = db.get('Unit');
 
-  // res.json({test: 'hello'});
   collection.find({},{},function(e,docs){
     res.json(docs)
   });
@@ -23,7 +22,6 @@ router.get('/unit/:id', function(req, res) {
   var id = req.params.id;
   var query = { _id : id};
 
-  // res.json({test: 'hello'});
   collection.findOne(query,{},function(e,docs){
     res.json(docs)
   });
@@ -61,6 +59,66 @@ router.delete('/unit/:id', function (req, res) {
     res.json(data);
   })
 });
+
+
+
+
+/* GET characters. */
+router.get('/characters', function(req, res) {
+  var db = req.db;
+  var collection = db.get('Character');
+
+  collection.find({},{},function(e,docs){
+    res.json(docs)
+  });
+});
+
+router.get('/character/:id', function(req, res) {
+  var db = req.db;
+  var collection = db.get('Character');
+  var id = req.params.id;
+  var query = { _id : id};
+
+  collection.findOne(query,{},function(e,docs){
+    res.json(docs)
+  });
+});
+
+
+router.post('/character', function (req, res) {
+  var unit = req.body;
+  var db = req.db;
+  var collection = db.get('Character');
+
+  collection.insert(unit, {}, function(err, data){
+    res.json(data);
+  })
+});
+
+router.put('/character/:id', function (req, res) {
+  var character = req.body;
+  var db = req.db;
+  var collection = db.get('Character');
+  var query = { _id : character._id};
+  var newValues = { $set: character};
+
+  collection.update(query, newValues, {}, function(err, data){
+    res.json(data);
+  })
+});
+
+router.delete('/character/:id', function (req, res) {
+  var db = req.db;
+  var collection = db.get('Character');
+  var id = req.params.id;
+  var query = { _id : id};
+
+  collection.remove(query, {}, function(err, data){
+    res.json(data);
+  })
+});
+
+
 
 
 module.exports = router;
