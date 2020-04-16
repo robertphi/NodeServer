@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var glob = require('glob');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -115,6 +116,27 @@ router.delete('/character/:id', function (req, res) {
 
   collection.remove(query, {}, function(err, data){
     res.json(data);
+  })
+});
+
+
+/* GET images. */
+router.get('/character-image-list', function(req, res) {
+  glob(appRoot + "/public/images/characters/*", {}, function (er, files) {
+    files = files.map( (fileName) => {
+      return fileName.replace('D:/NodeServer/public', '');
+    })
+    return res.json(files);
+  })
+});
+
+/* GET images. */
+router.get('/unit-image-list', function(req, res) {
+  glob(appRoot + "/public/images/units/*", {}, function (er, files) {
+    files = files.map( (fileName) => {
+      return fileName.replace('D:/NodeServer/public', '');
+    })
+    return res.json(files);
   })
 });
 
