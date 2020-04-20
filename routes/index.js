@@ -140,6 +140,20 @@ router.get('/unit-image-list', function(req, res) {
   })
 });
 
+router.post('/upload', function(req, res) {
+  console.log(req.files.image); // the uploaded file object
+
+  let file = req.files.image;
+
+  // Use the mv() method to place the file somewhere on your server
+  file.mv(appRoot + "/public/images/units/" + file.name, function(err) {
+    if (err)
+      return res.status(500).send(err);
+
+    res.json({imageUrl : "images/units/" + file.name});
+  });
+});
+
 
 
 

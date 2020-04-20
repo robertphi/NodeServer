@@ -5,6 +5,7 @@ var logger = require('morgan');
 var monk = require('monk');
 var db = monk('localhost:27017/mydb');
 var cors = require('cors');
+const fileUpload = require('express-fileupload');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -19,6 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 global.appRoot = path.resolve(__dirname);
+app.use(fileUpload());
 
 app.use(function (req, res, next) {
     req.db = db;
